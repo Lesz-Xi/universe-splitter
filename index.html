@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <title>Universe Splitter</title>
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="solar-system.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="app.png" />
+    <meta name="theme-color" content="#1b2735" />
+  </head>
+
+  <body>
+
+  </div>
+
+    <div class="logo-container">
+      <img src="Les.png" id="logo" alt="CodeFar Logo" class="logo" />
+      </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" aria-label="Music player">
+      <audio id="audio-player" loop>
+        <source src="Music.mp3" type="audio/mpeg" />
+        <source src="Music.mp3" type="audio/ogg" />
+      </audio>
+      <div class="waves" aria-hidden="true">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+      <span class="song-title">Into the Universe</span>
+    </div>
+
+    <div class="astronaut">
+      <img src="Astronaut.webp" alt="Astronaut" class="src" />
+    </div>
+
+    <div class="black-hole">
+      <div class="starship ufo3"></div>
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="night">
+      <div class="shooting_star"></div>
+      <div class="shooting_star"></div>
+      <div class="shooting_star"></div>
+      <div class="shooting_star"></div>
+      <div class="shooting_star"></div>
+      <div class="shooting_star"></div>
+    </div>
+
+    <!-- Solar System Animation -->
+    <div class="solar-syst" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="mercury"></div>
+      <div class="venus"></div>
+      <div class="earth"></div>
+      <div class="mars"></div>
+      <div class="jupiter"></div>
+      <div class="saturn"></div>
+      <div class="uranus"></div>
+      <div class="neptune"></div>
+      <div class="asteroid-belt"></div>
+      <div class="pluto"></div>
+      <div class="starship ufo2"></div>
+    </div>
+
+    <div class="starfield" aria-hidden="true"></div>
+
+    <!-- Output Section -->
+    <div class="container">
+      <h1 class="typewriter-font">Universe</h1>
+      <div class="prompt-section">
+        <div class="prompt">
+          <label for="inOne">In one Universe, I will now:</label>
+          <input
+            type="text"
+            id="inOne"
+            placeholder=""
+            aria-label="Choice in one universe"
+          />
+        </div>
+        <div class="prompt">
+          <label for="inTwo">Other Universe, I will now:</label>
+          <input
+            type="text"
+            id="inTwo"
+            placeholder="" 
+            aria-label="Choice in another universe"
+          />
+        </div>
+      </div>
+      <button onclick="splitUniverse()">SPLIT THE UNIVERSE</button>
+      <div id="output-container" class="output-container hidden">
+        <div id="output" class="output" aria-live="polite"></div>
+      </div>
+    </div>
+
+
+    <!-- Animated Scene -->
+    <div class="scene" aria-hidden="true">
+      <div class="ball"></div>
+      <div class="ring">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i>
+      </div>
+    </div>
+
+    <!-- JavaScript for Service Worker and Autoplay -->
+    <script src="script.js"></script>
+    <script>
+      // Register the service worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then(() => console.log("Service Worker Registered"))
+          .catch((error) =>
+            console.log("Service Worker Registration Failed:", error)
+          );
+      }
+
+      // Handle autoplay for audio
+      window.addEventListener("load", () => {
+        const audio = document.getElementById("audio-player");
+        audio
+          .play()
+          .then(() => {
+            audio.muted = false;
+          })
+          .catch((error) => {
+            console.log("Autoplay prevented. Waiting for user interaction.");
+            document.body.addEventListener(
+              "click",
+              () => {
+                audio.play().then(() => {
+                  audio.muted = false;
+                });
+              },
+              { once: true }
+            );
+          });
+      });
+
+       // Add event listener to the logo
+document.getElementById("logo").addEventListener("click", function () {
+    // Refresh the browser page
+    window.location.reload();
+});
+
+    </script>
+  </body>
+  <script src="script.js"></script>
+</html>
