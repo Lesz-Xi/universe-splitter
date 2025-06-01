@@ -8,11 +8,11 @@
       rel="stylesheet"
     />
     <title>Universe Splitter</title>
-    <link rel="stylesheet" href="Style.css" />
-    <link rel="stylesheet" href="solar-system.css" />
+    <link rel="stylesheet" href="styles/Style.css" />
+    <link rel="stylesheet" href="styles/solar-system.css" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="app.png" />
+    <!-- <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" /> -->
+    <link rel="icon" type="image/png" sizes="192x192" href="images/app.png" />
     <meta name="theme-color" content="#1b2735" />
   </head>
 
@@ -21,15 +21,15 @@
   </div>
 
     <div class="logo-container">
-      <img src="Les.png" id="logo" alt="CodeFar Logo" class="logo" />
+      <img src="images/Les.png" id="logo" alt="CodeFar Logo" class="logo" />
       </div>
     </div>
 
     <!-- Music Player -->
     <div class="music-player" aria-label="Music player">
       <audio id="audio-player" loop>
-        <source src="Music.mp3" type="audio/mpeg" />
-        <source src="Music.mp3" type="audio/ogg" />
+        <source src="audio/Music.mp3" type="audio/mpeg" />
+        <source src="audio/Music.mp3" type="audio/ogg" />
       </audio>
       <div class="waves" aria-hidden="true">
         <div class="wave"></div>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="astronaut">
-      <img src="Astronaut.webp" alt="Astronaut" class="src" />
+      <img src="images/Astronaut.webp" alt="Astronaut" class="src" />
     </div>
 
     <div class="black-hole">
@@ -117,12 +117,12 @@
     </div>
 
     <!-- JavaScript for Service Worker and Autoplay -->
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <script>
       // Register the service worker
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-          .register("service-worker.js")
+          .register("scripts/service-worker.js")
           .then(() => console.log("Service Worker Registered"))
           .catch((error) =>
             console.log("Service Worker Registration Failed:", error)
@@ -159,5 +159,5 @@ document.getElementById("logo").addEventListener("click", function () {
 
     </script>
   </body>
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 </html>
